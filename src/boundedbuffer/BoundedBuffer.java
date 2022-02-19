@@ -18,14 +18,14 @@ public class BoundedBuffer {
         while (bufferFilled == bufferSize)
             this.wait();
         bufferFilled++;
-        System.out.println("Produced item to buffer: " + bufferFilled);
+        System.out.println(Thread.currentThread().getName() + " - Produced item to buffer: " + bufferFilled);
         this.notify();
     }
 
     public synchronized void consumeItem() throws InterruptedException {
         while(bufferFilled == 0)
             this.wait();
-        System.out.println("Consumed item from buffer: " + bufferFilled);
+        System.out.println(Thread.currentThread().getName() + " - Consumed item from buffer: " + bufferFilled);
         bufferFilled--;
         this.notify();
     }

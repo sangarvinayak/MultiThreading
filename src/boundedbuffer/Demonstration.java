@@ -11,7 +11,7 @@ import java.util.concurrent.Executors;
 public class Demonstration {
 
     public static void main(String[] args) {
-        BoundedBuffer boundedbuffer = new BoundedBuffer(5);
+        BoundedBuffer boundedbuffer = new BoundedBuffer(1);
         ExecutorService threadPool = getThreadPool();
         List<Runnable> requiredTasks = Arrays.asList(
             new ProduceTask(boundedbuffer, 12),
